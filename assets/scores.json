@@ -1,0 +1,70 @@
+{
+    "title": "Model Performance",
+    "y_axis": "Score",
+    "metrics": [
+        "Levenshtein (lighter)",
+        "TEDS (darker)"
+    ],
+    "models": [
+        {
+            "name": "chunkr-parse-1-thinking",
+            "levenshtein": 0.901,
+            "teds": 0.886
+        },
+        {
+            "name": "chunkr-parse-1",
+            "levenshtein": 0.822,
+            "teds": 0.800
+        },
+        {
+            "name": "Gemini 2.5 Pro",
+            "levenshtein": 0.811,
+            "teds": 0.784
+        },
+        {
+            "name": "AWS Textract",
+            "levenshtein": 0.802,
+            "teds": 0.788
+        },
+        {
+            "name": "Gemini 2.5 Flash",
+            "levenshtein": 0.763,
+            "teds": 0.723
+        },
+        {
+            "name": "Mathpix",
+            "levenshtein": 0.702,
+            "teds": 0.765
+        },
+        {
+            "name": "Claude Opus 4.1",
+            "levenshtein": 0.701,
+            "teds": 0.678
+        },
+        {
+            "name": "Gemini 2.0 Flash",
+            "levenshtein": 0.682,
+            "teds": 0.659
+        },
+        {
+            "name": "Azure Document Intelligence",
+            "levenshtein": 0.654,
+            "teds": 0.649
+        },
+        {
+            "name": "GPT-5",
+            "levenshtein": 0.602,
+            "teds": 0.603
+        },
+        {
+            "name": "Mistral OCR",
+            "levenshtein": 0.550,
+            "teds": 0.557
+        },
+        {
+            "name": "Unstructured",
+            "levenshtein": 0.531,
+            "teds": 0.481
+        }
+    ]
+}

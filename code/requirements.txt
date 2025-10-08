@@ -1,0 +1,46 @@
+# Core dependencies for all processors
+Pillow>=10.0.0
+requests>=2.31.0
+python-dotenv>=1.0.0
+
+# Image processing and PDF support
+pdf2image>=3.1.0
+opencv-python-headless>=4.8.0
+numpy>=1.24.0
+
+# OpenRouter and NVIDIA (via OpenAI client)
+openai>=1.30.0
+
+# Azure Document Intelligence
+azure-ai-documentintelligence>=1.0.0
+azure-core>=1.29.0
+
+# Amazon Textract
+amazon-textract-textractor>=1.7.0
+boto3>=1.34.0
+botocore>=1.34.0
+
+# Mistral OCR
+mistralai>=1.0.0
+
+# Unstructured.io
+unstructured-client>=0.24.0
+
+# Chunkr AI
+chunkr-ai>=1.0.0
+
+# Testing dependencies
+unittest2>=1.1.0
+
+# Optional: Advanced processing
+lxml>=4.9.0  # For advanced HTML validation
+beautifulsoup4>=4.12.0  # For HTML parsing
+zss>=1.2.0  # For tree edit distance (TEDS scoring)
+
+# Memory and performance monitoring
+psutil>=5.9.0
+memory-profiler>=0.61.0
+
+# Async processing
+aiohttp>=3.8.0
+asyncio>=3.4.3

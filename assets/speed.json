@@ -1,0 +1,54 @@
+{
+    "title": "Model Speed Performance (Lower is Better)",
+    "y_axis": "Average Processing Time (seconds)",
+    "models": [
+        {
+            "name": "Azure Document Intelligence",
+            "time_seconds": 10.09
+        },
+        {
+            "name": "chunkr-parse-1",
+            "time_seconds": 13.04
+        },
+        {
+            "name": "Gemini 2.0 Flash",
+            "time_seconds": 13.06
+        },
+        {
+            "name": "Mistral OCR",
+            "time_seconds": 13.36
+        },
+        {
+            "name": "AWS Textract",
+            "time_seconds": 14.09
+        },
+        {
+            "name": "Mathpix",
+            "time_seconds": 14.49
+        },
+        {
+            "name": "Unstructured",
+            "time_seconds": 14.91
+        },
+        {
+            "name": "Gemini 2.5 Flash",
+            "time_seconds": 16.28
+        },
+        {
+            "name": "chunkr-parse-1-thinking",
+            "time_seconds": 17.06
+        },
+        {
+            "name": "Claude Opus 4.1",
+            "time_seconds": 17.07
+        },
+        {
+            "name": "GPT-5",
+            "time_seconds": 17.07
+        },
+        {
+            "name": "Gemini 2.5 Pro",
+            "time_seconds": 22.94
+        }
+    ]
+}

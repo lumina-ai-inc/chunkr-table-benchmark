@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+*.pywz
+*.pyzw
+*.pyzwz
+*.pyzwzw
+.DS_Store
+
+# Environment variables
+.env
+
+# Data
+data/
+
+# Logs
+logs/
+
+# .venv
+.venv/
