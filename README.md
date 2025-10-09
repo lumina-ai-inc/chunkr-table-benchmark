@@ -30,12 +30,6 @@ Our models introduce significant advancements in **accuracy**, **speed**, and **
   - Procurement documents and RFPs
 
 
-
-| Model | Speed (avg duration) | Levenshtein Score (Tables) | TEDS Score (Tables) | Best Use Case |
-|-------|---------------------|-------------------|------------|---------------|
-| **chunkr-parse-1** | 15.86s | 0.822 | 0.800 | High-throughput workflows |
-| **chunkr-parse-1-thinking** | 22.71s | 0.901 | 0.886 | Complex documents |
-
 ### Accuracy
 Table-to-HTML conversion represents one of the most challenging tasks in document processing, so we evaluated our models' performance using this task, on a comprehensive dataset of 500 publicly available tables with manually annotated HTML ground truth. These models deliver better accuracy and speed compared to other leading VLMs. 
 
