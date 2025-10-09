@@ -129,8 +129,6 @@ Have feedback or questions? Hit us up - we'd love to hear how these models are w
 
 **API** — [Try the live endpoint](https://www.chunkr.ai)
 
-**Code** — [Explore the repo](https://github.com/lumina-ai-inc/chunkr)
-
 **Docs** — [Docs](https://docs.chunkr.ai)
 
 **Updates** — [Follow on X](https://x.com/chunkrai)
