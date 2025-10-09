@@ -3,7 +3,7 @@ We are thrilled to announce the release of a new document-native vision language
 
 
 ## Key features
-Our models introduce significant advancements in **accuracy**, **speed**, and **stability**. These models are specifically trained to handle the unique challenges of real-world documents, with comprehensive segment support optimized for all existing [Chunkr segment types](https://docs.chunkr.ai/docs/features/layout-analysis/what#segment-types) including tables, pictures, text, formulas, and other document elements.
+Our models introduce significant advancements in **accuracy**, **speed**, and **stability**. These models are specifically trained to handle the unique challenges of real-world documents, with comprehensive segment support optimized for all existing [Chunkr segment types]([https://docs.chunkr.ai/docs/features/layout-analysis/what#segment-types](https://docs.chunkr.ai/pages/features/parse/outputs#chunks-and-segments)) including tables, pictures, text, formulas, and other document elements.
 
 • **Multilingual parsing** - Support for content across dozens of languages
 
