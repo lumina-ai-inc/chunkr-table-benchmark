@@ -1,4 +1,4 @@
-# Introducing chunkr-parse-1-thinking: Purpose Built for Document Understanding
+# Introducing chunkr-parse-1-thinking: The best VLM for Document OCR
 We are thrilled to announce the release of a new document-native vision language model family for document parsing workflows, **chunkr-parse-1** and **chunkr-parse-1-thinking**. These models are purpose-built to parse individual components of PDFs - tables, forms, pictures, text OCR, formulas, and even full pages. The "thinking" variant is trained to reason over patches of PDF pages, allowing it to handle more complex cases. You can try both of these models now, on [our API](https://www.chunkr.ai). 
 
 
