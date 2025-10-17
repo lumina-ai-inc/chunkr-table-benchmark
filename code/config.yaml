@@ -1,0 +1,30 @@
+processors:
+  - paddle
+
+models:
+  - PaddleOCR-VL-0.9B
+
+# Which grading metrics to compute
+metrics:
+  - levenshtein
+  # - teds
+
+# (Optional) Test specific images only
+# images:
+#   - table_d6829136.png
+#   - table_e337b479.png
+#   - table_f02999ce.png
+
+# (Optional) Limit number of images to test (useful for quick tests)
+# max_images: 2  # Commented out to test full dataset. Uncomment for quick tests.
+
+# (Optional) Custom data directories (absolute or relative paths)
+# If not specified, defaults to code/data/images and code/data/ground_truth
+# image_dir: /path/to/custom/images
+# ground_truth_dir: /path/to/custom/ground_truth
+
+# Parallel execution settings
+parallel: true
+workers: 10 # Each worker creates its own pipeline instance for true parallelism
+# Note: Monitor GPU memory with: watch -n 1 nvidia-smi
+# Start with 10-15 workers and increase if GPU memory allows
