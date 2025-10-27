@@ -4,7 +4,7 @@ requests>=2.31.0
 python-dotenv>=1.0.0
 
 # Image processing and PDF support
-pdf2image>=3.1.0
+pdf2image
 opencv-python-headless>=4.8.0
 numpy>=1.24.0
 
@@ -27,7 +27,7 @@ mistralai>=1.0.0
 unstructured-client>=0.24.0
 
 # Chunkr AI
-chunkr-ai>=1.0.0
+chunkr-ai==0.1.0a13
 
 # Testing dependencies
 unittest2>=1.1.0

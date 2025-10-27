@@ -9,6 +9,9 @@ This package contains individual processor implementations for:
 - MistralProcessor: Mistral OCR API
 - TextractProcessor: Amazon Textract
 - ChunkrDefaultProcessor: Chunkr API (default variant)
+- PaddleOCRVLProcessor: PaddleOCR-VL
+- ChandraProcessor: Chandra from Datalab
+- DeepseekOCRProcessor: DeepSeek-OCR
 
 Each processor implements a common interface:
 - __init__(model): Initialize with model/configuration
@@ -22,6 +25,9 @@ from .mistral_processor import MistralProcessor
 from .openrouter_processor import OpenRouterTableProcessor
 from .textract_processor import TextractProcessor
 from .unstructured_processor import UnstructuredProcessor
+from .paddle_processor import PaddleOCRVLProcessor
+from .chandra_processor import ChandraProcessor
+from .deepseek_processor import DeepseekOCRProcessor
 
 __all__ = [
     'UnstructuredProcessor',
@@ -31,6 +37,9 @@ __all__ = [
     'MistralProcessor',
     'TextractProcessor',
     'ChunkrDefaultProcessor',
+    'PaddleOCRVLProcessor',
+    'DeepseekOCRProcessor',
+    'ChandraProcessor',
 ]
 
 # Model configuration examples
@@ -70,5 +79,17 @@ PROCESSOR_CONFIGS = {
         "processor_classes": {
             "default": ChunkrDefaultProcessor,
         }
+    },
+    "paddle": {
+        "models": ["PaddleOCR-VL-0.9B"],
+        "processor_class": PaddleOCRVLProcessor
+    },
+    "deepseek": {
+        "models": ["deepseek-ai/DeepSeek-OCR"],
+        "processor_class": DeepseekOCRProcessor
+    },
+    "datalab": {
+        "models": ["chandra"],
+        "processor_class": ChandraProcessor
     }
 }

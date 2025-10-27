@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
 """
-PaddleOCR-VL processor supporting both vLLM inference (via OpenAI API)
-and local PaddleOCRVL pipeline execution.
-Includes full OTSL → HTML conversion fallback.
-
-sudo docker run --rm --gpus all --network host ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlepaddle/paddlex-genai-vllm-server:0.3.0
+Chandra processor supporting vLLM inference via OpenAI API.
+Standard HTML table extraction without OTSL conversion.
 """
 
 import base64
@@ -17,33 +14,16 @@ from openai import OpenAI
 from PIL import Image
 
 
-class PaddleOCRVLProcessor:
-    def __init__(self, model="PaddleOCR-VL-0.9B", use_vllm=True):
+class ChandraProcessor:
+    def __init__(self, model="chandra"):
         self.model = model
-        self.use_vllm = use_vllm
+        self.client = OpenAI(
+            base_url="http://localhost:8000/v1",
+            api_key="",
+        )
+        print("✅ Initialized ChandraProcessor in vLLM mode.")
 
-        if use_vllm:
-            self.client = OpenAI(
-                base_url="http://localhost:8080/v1",
-                api_key="",
-            )
-            print("✅ Initialized PaddleOCRVLProcessor in vLLM mode.")
-        else:
-            from paddleocr import PaddleOCRVL
-
-            self.pipeline = PaddleOCRVL(
-                vl_rec_backend="vllm-server",
-                vl_rec_server_url="http://127.0.0.1:8080/v1",
-            )
-            print("✅ Initialized PaddleOCRVLProcessor in local pipeline mode.")
-
-    def process_document(self, file_path, element_type="table", task_mode="element"):
-        if self.use_vllm:
-            return self._process_with_vllm(file_path)
-        else:
-            return self._process_with_pipeline(file_path, element_type, task_mode)
-
-    def _process_with_vllm(self, file_path):
+    def process_document(self, file_path):
         print(f"Processing document with vLLM server via OpenAI API: {file_path}")
 
         max_retries = 3
@@ -121,26 +101,9 @@ class PaddleOCRVLProcessor:
 
         return "<table></table>"
 
-    def _process_with_pipeline(self, file_path, element_type="table", task_mode="element"):
-        print(f"Processing document locally with PaddleOCRVL: {file_path}")
-        results = self.pipeline.predict(
-            file_path,
-            task_mode=task_mode,
-            element_type=element_type,
-        )
-
-        html_outputs = []
-        for res in results:
-            if hasattr(res, "to_html"):
-                html_outputs.append(res.to_html())
-            else:
-                html_outputs.append(str(res))
-
-        return "\n".join(html_outputs)
-
     def extract_html_from_response(self, response):
         """
-        Extract HTML table or OTSL format from model response.
+        Extract HTML table from model response.
         """
         try:
             content = response.choices[0].message.content
@@ -152,29 +115,10 @@ class PaddleOCRVLProcessor:
                 if tables:
                     return "\n".join(tables)
 
-            if any(tag in content for tag in ("<fcel>", "<xcel>", "<nl>", "<ecel>")):
-                print("🔄 Detected OTSL format, converting to HTML...")
-                html = self.convert_paddle_format_to_html(content)
-                print("✅ OTSL conversion completed")
-                return html
-
-            print("⚠️ No table or OTSL content detected.")
+            print("⚠️ No table content detected.")
             return "<table></table>"
 
         except Exception as e:
             print(f"Error extracting HTML from response: {e}")
             return "<table></table>"
 
-    def convert_paddle_format_to_html(self, content):
-        """
-        Convert PaddleOCR's OTSL (Open Table Structure Language) to HTML.
-        """
-        try:
-            from paddlex.inference.pipelines.paddleocr_vl.uilts import convert_otsl_to_html
-            html = convert_otsl_to_html(content)
-            return html if html else "<table></table>"
-        except ImportError as e:
-            print(f"⚠️  Failed to import PaddleX converter: {e}")
-        except Exception as e:
-            print(f"⚠️  Error converting OTSL to HTML: {e}")
-        return "<table></table>"
